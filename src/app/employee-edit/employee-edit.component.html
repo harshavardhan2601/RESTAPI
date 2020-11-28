@@ -1,0 +1,97 @@
+<form [formGroup]="angForm" novalidate autocomplete="off">
+	<div class="col-md-12 mt-3">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">Add Employee</h5>
+			</div>
+			<div class="card-body">
+				<div class="row mt-3">
+					<div class="col-md-4">
+						<div class="input-group input-group-sm">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Type Of Employee</span>
+							</div>
+							<select class="custom-select" formControlName="typeofemployee" [(ngModel)]="employee.typeofemployee" id="identify">
+								<option value="" style="color: black">SELECT</option>
+								<option value="GHMC Employee" >GHMC Employee</option>
+								<option value="Irregation Employee">Irregation Employee</option>
+								<option value="Metro Employee">Metro Employee</option>
+								<option value="L&amp;T Employee">L&T Employee</option>
+								<option value="Railway Employee">Railway Employee</option>
+								<option value="R.T.C Employee">R.T.C Employee</option>
+							</select>
+						</div>
+						<div *ngIf="angForm.controls['typeofemployee'].invalid && (angForm.controls['typeofemployee'].dirty || angForm.controls['typeofemployee'].touched)"
+							class="alert alert-danger mt-1">
+							<div *ngIf="angForm.controls['typeofemployee'].errors.required">
+								Type Of Employee is required
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="input-group input-group-sm">
+							<div class="input-group-prepend"><span class="input-group-text">Name </span></div>
+							<input class="form-control" id="fname" type="text" formControlName="ename" [(ngModel)] = "employee.ename" maxlength="30" />
+						</div>
+						<div *ngIf="angForm.controls['ename'].invalid && (angForm.controls['ename'].dirty || angForm.controls['ename'].touched)"
+							class="alert alert-danger mt-1">
+							<div *ngIf="angForm.controls['ename'].errors.required">
+								Name is required
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group input-group-sm">
+							<div class="input-group-prepend"><span class="input-group-text">Employee Email Id: </span>
+							</div>
+							<input class="form-control" id="fmail" type="text" formControlName="email"[(ngModel)] = "employee.email" maxlength="30"
+								autocomplete="off" />
+						</div>
+						<div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+							class="alert alert-danger mt-1">
+							<div *ngIf="angForm.controls['email'].errors.required">
+								Employee Email Id is required
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-4">
+						<div class="input-group input-group-sm">
+							<div class="input-group-prepend"><span class="input-group-text">Cell No: </span></div>
+							<input class="form-control" id="fcell" type="text" formControlName="ecellno" [(ngModel)] = "employee.ecellno"
+								maxlength="30" />
+						</div>
+						<div *ngIf="angForm.controls['ecellno'].invalid && (angForm.controls['ecellno'].dirty || angForm.controls['ecellno'].touched)"
+							class="alert alert-danger mt-1">
+							<div *ngIf="angForm.controls['ecellno'].errors.required">
+								Cell No is required
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="input-group input-group-sm">
+							<div class="input-group-prepend"><span class="input-group-text">Password: </span></div>
+							<input class="form-control" id="fpassword" type="password" formControlName="epassword" [(ngModel)] = "employee.epassword"
+								maxlength="30" />
+						</div>
+						<div *ngIf="angForm.controls['epassword'].invalid && (angForm.controls['epassword'].dirty || angForm.controls['epassword'].touched)"
+							class="alert alert-danger mt-1">
+							<div *ngIf="angForm.controls['epassword'].errors.required">
+								Password is required
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-md-11 text-center">
+						<button (click)="updateEmployee()" [disabled]="angForm.pristine || angForm.invalid"
+							class="btn btn-primary" type="submit">Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

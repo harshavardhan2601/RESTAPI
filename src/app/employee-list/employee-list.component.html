@@ -1,0 +1,28 @@
+<div class="col-md-12 mt-4">
+    <h4 class="card-title">Employee List
+    </h4>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>Type Of Employee</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+          
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{ employee.typeofemployee }}</td>
+                    <td>{{ employee.ename }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td><a [routerLink]="['/emp/edit/', employee._id]" class="btn btn-primary mr-3">Edit</a>
+                        <a (click) = "deleteEmployee(employee._id)" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    </div>
+    
